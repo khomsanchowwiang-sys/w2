@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
                 // ปุ่มไปหน้าแปลงลิตร
                 TextButton(
                   onPressed: () => Navigator.pushNamed(context, '/Liters'),
-                  child: Text('แปลงลิตรเป็นลูกบาศก์เมตร'),
+                  child: Text('แปลงค่าลิตรเป็นลูกบาศก์เมตร'),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.lightBlue,
                     foregroundColor: Colors.white,

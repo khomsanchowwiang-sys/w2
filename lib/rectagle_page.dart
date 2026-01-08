@@ -41,7 +41,7 @@ class RectanglePageState extends State<RectanglePage> {
         foregroundColor: Colors.white,
       ),
       body: Container(
-        // ใส่สีไล่ระดับพื้นหลัง
+        // ใส่สีไล่ระดับพื้นหลังงาน
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,

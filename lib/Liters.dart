@@ -84,7 +84,7 @@ class LitersPageState extends State<LitersPage> {
                   controller: _literCtrl,
                   keyboardType: TextInputType.number,
                   decoration: _textFieldStyle.copyWith(
-                      label: Text("ปริมาตร (ลิตร)"),
+                      label: Text("ปริมาตร(ลิตร)"),
                       hintText: "กรอกจำนวนลิตร เช่น 2000"
                   ),
                 ),
