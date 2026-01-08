@@ -1,5 +1,7 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'rectagle_page.dart';
+import 'Liters.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,12 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
       routes: {
-        '/': (context) => const MyHomePage(),
-        '/rectangle_page': (context) => const RectanglePage(),
+        '/': (context) => MyHomePage(),
+        '/rectangle_page': (context) => RectanglePage(),
+        '/Liters': (context) => LitersPage(),
       },
     );
   }
@@ -28,16 +28,59 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: TextButton(
-          onPressed: () => Navigator.pushNamed(context, '/rectangle_page'),
-          style: TextButton.styleFrom(backgroundColor: Colors.red),
-          child: const Text("Go to Rectangle Page",
-              style: TextStyle(color: Colors.white)),
+      body: Container(
+        // ใส่สีไล่ระดับพื้นหลัง
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.blue[100]!, Colors.white],
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 50),
+                Text(
+                  "แอปคำนวณ",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                SizedBox(height: 30),
+
+                // ปุ่มไปหน้าคำนวณพื้นที่
+                TextButton(
+                  onPressed: () => Navigator.pushNamed(context, '/rectangle_page'),
+                  child: Text('คำนวณพื้นที่สี่เหลี่ยม'),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    minimumSize: Size(250, 50),
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
+                // ปุ่มไปหน้าแปลงลิตร
+                TextButton(
+                  onPressed: () => Navigator.pushNamed(context, '/Liters'),
+                  child: Text('แปลงลิตรเป็นลูกบาศก์เมตร'),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    minimumSize: Size(250, 50),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
 }
-
-
