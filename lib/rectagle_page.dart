@@ -42,12 +42,14 @@ class RectanglePageState extends State<RectanglePage> {
       ),
       body: Container(
         // ใส่สีไล่ระดับพื้นหลังงาน
+        height: 2000,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Colors.blue[100]!, Colors.white],
           ),
+
         ),
         child: SingleChildScrollView(
           child: Padding(

@@ -49,7 +49,7 @@ class MyHomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 300),
 
                 // ปุ่มไปหน้าคำนวณพื้นที่
                 TextButton(

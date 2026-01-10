@@ -8,19 +8,19 @@ class LitersPage extends StatefulWidget {
 }
 
 class LitersPageState extends State<LitersPage> {
-
   double _liters = 0;
   double _cubicMeters = 0;
 
   final TextEditingController _literCtrl = TextEditingController();
 
   final InputDecoration _textFieldStyle = InputDecoration(
-      filled: true,
-      fillColor: Colors.blue[100],
-      border: OutlineInputBorder()
+    filled: true,
+    fillColor: Colors.blue[100],
+    border: OutlineInputBorder(),
   );
 
   void _convertUnit() {
+    //ุเเปลงค่า textfillเป็น doubke ถ้ามีค่าว่างจะเท่ากับ0
     double inputLiters = double.tryParse(_literCtrl.text) ?? 0;
     setState(() {
       _liters = inputLiters;
@@ -38,6 +38,7 @@ class LitersPageState extends State<LitersPage> {
         foregroundColor: Colors.white,
       ),
       body: Container(
+        height: 2000,
         // ใส่สีไล่ระดับพื้นหลัง
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -56,9 +57,9 @@ class LitersPageState extends State<LitersPage> {
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey.shade300)
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey.shade300),
                   ),
                   child: Column(
                     children: [
@@ -68,28 +69,44 @@ class LitersPageState extends State<LitersPage> {
                         height: 150,
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) {
-                          return Icon(Icons.inbox, size: 100, color: Colors.grey);
+                          return Icon(
+                            Icons.inbox,
+                            size: 100,
+                            color: Colors.grey,
+                          );
                         },
                       ),
                       SizedBox(height: 5),
-                      Text("1 m³ = 1000 L", style: TextStyle(color: Colors.grey[700], fontStyle: FontStyle.italic)),
+                      Text(
+                        "1 m³ = 1000 L",
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
                     ],
                   ),
                 ),
 
                 SizedBox(height: 20),
-                Text("$_liters ลิตร = $_cubicMeters ลบ.ม.", style: TextStyle(fontSize: 22),),
-                SizedBox(height: 20,),
-                TextField(
-                  controller: _literCtrl,
-                  keyboardType: TextInputType.number,
-                  decoration: _textFieldStyle.copyWith(
-                      label: Text("ปริมาตร(ลิตร)"),
-                      hintText: "กรอกจำนวนลิตร เช่น 2000"
-                  ),
+                Text(
+                  "$_liters ลิตร = $_cubicMeters ลบ.ม.",
+                  style: TextStyle(fontSize: 22),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(onPressed: () => _convertUnit(), child: Text("แปลงค่า"))
+                TextField(
+                  controller: _literCtrl,
+                  decoration: _textFieldStyle.copyWith(
+                    label: Text("ปริมาตร(ลิตร)"),
+                    hintText: "กรอกจำนวนลิตร เช่น 2000",
+                  ),
+                ),
+                //เมื่อเกิดการกด
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () => _convertUnit(),
+                  child: Text("แปลงค่า"),
+                ),
               ],
             ),
           ),
